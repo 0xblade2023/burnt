@@ -1,0 +1,43 @@
+{
+  "name": "@loopback/test-repository-mongodb",
+  "description": "Acceptance tests for `@loopback/repository` + `loopback-connector-mongodb`",
+  "version": "0.15.1",
+  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM Corp. and LoopBack contributors",
+  "copyright.owner": "IBM Corp. and LoopBack contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loopbackio/loopback-next.git",
+    "directory": "acceptance/repository-mongodb"
+  },
+  "engines": {
+    "node": "18 || 20"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "clean": "lb-clean loopback-test-repository-mongodb*.tgz dist *.tsbuildinfo package",
+    "pretest": "npm run build",
+    "test": "npm run mocha",
+    "mocha": "lb-mocha \"dist/__tests__/**/*.js\"",
+    "verify": "npm pack && tar xf loopback-test-repository-mongodb*.tgz && tree package && npm run clean"
+  },
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "devDependencies": {
+    "@loopback/build": "^11.0.1",
+    "@loopback/eslint-config": "^15.0.1",
+    "@loopback/repository": "^7.0.1",
+    "@loopback/repository-tests": "^0.24.1",
+    "@loopback/testlab": "^7.0.1",
+    "@types/node": "^16.18.96",
+    "loopback-connector-mongodb": "^6.2.0",
+    "tslib": "^2.6.2"
+  }
+}
