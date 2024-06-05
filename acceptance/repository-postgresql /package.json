@@ -1,0 +1,43 @@
+{
+  "name": "@loopback/test-repository-postgresql",
+  "description": "Acceptance tests for `@loopback/repository` + `loopback-connector-postgresql`",
+  "version": "6.0.2",
+  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "IBM Corp. and LoopBack contributors",
+  "copyright.owner": "IBM Corp. and LoopBack contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loopbackio/loopback-next.git",
+    "directory": "acceptance/repository-postgresql"
+  },
+  "engines": {
+    "node": "18 || 20 || 22"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "clean": "lb-clean loopback-test-repository-postgresql*.tgz dist *.tsbuildinfo package",
+    "pretest": "npm run build",
+    "test": "npm run mocha",
+    "mocha": "lb-mocha \"dist/__tests__/**/*.js\"",
+    "verify": "npm pack && tar xf loopback-test-repository-postgresql*.tgz && tree package && npm run clean"
+  },
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "devDependencies": {
+    "@loopback/build": "^11.0.2",
+    "@loopback/eslint-config": "^15.0.2",
+    "@loopback/repository": "^7.0.2",
+    "@loopback/repository-tests": "^0.24.2",
+    "@loopback/testlab": "^7.0.2",
+    "@types/node": "^16.18.97",
+    "loopback-connector-postgresql": "^7.1.1",
+    "tslib": "^2.6.2"
+  }
+}
